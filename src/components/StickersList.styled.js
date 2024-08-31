@@ -8,4 +8,5 @@ export const ListImg = styled.img`
 `
 export const ListName = styled.h2`
     font-size: 15px;
+    height: 15px;
 `
