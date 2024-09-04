@@ -29,14 +29,17 @@ class App extends Component {
   }
 
   render() {
-    const filteredContacts = this.state.contacts.filter((contact) => contact.name.contains(this.state.filter))
-    console.log(filteredContacts)
+    const filteredContacts = this.state.contacts.filter((contact) => contact.name.includes(this.state.filter))
     return (
       <>
         <ContactForm addContact={this.addContact}></ContactForm>
         <h2>Contacts</h2>
         <ContactFilter addFilter={this.addFilter}></ContactFilter>
-        <ContactList contacts={this.state.contacts}></ContactList>
+        if (filteredContacts){
+          <ContactList contacts={this.state.filter}></ContactList>
+        } else{
+          <ContactList contacts={this.state.contacts}></ContactList>
+        }
       </>
     )
   }
